@@ -1,4 +1,5 @@
 pipeline{
+	agenet any
  stages{
 	 stage('build'){
          steps{
