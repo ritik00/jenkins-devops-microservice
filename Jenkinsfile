@@ -3,16 +3,18 @@ pipeline{
 	environment {
 		dockerHome = tool 'myDocker'
 		mavenHome = tool 'myMaven'
-		PATH="$dockerHome/bin:$mavenHome/bin:$PATH"
+       PATH = "$dockerHome\bin:$mavenHome\bin:$PATH"
 	}
- stages{
-	 stage('build'){
-         steps{
-			sh 'maven --version'
-			sh 'docker version'
-			echo "build"
-		 }		
-	 }
+    stages
+	  {
+	        stage('build')
+			{
+               steps{
+			     sh 'maven --version'
+			     sh 'docker version'
+			     echo "build"
+		            }		
+	        }
 	 stage('test'){
          steps{
 			echo "test"
@@ -23,7 +25,7 @@ pipeline{
 			echo "integration test"
 		 }		
 	 }
- }
+    }
  post{
 	always{
 		echo "always"
